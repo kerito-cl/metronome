@@ -1,0 +1,11 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #525252;
+    user-select: none;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

@@ -25,10 +25,10 @@ function nextNote() {
 
   var secondsPerBeat = 60.0 / bpm
   nextNoteTime += secondsPerBeat
-  currentBeatinBar ++;
-  if (currentBeatinBar == beatsPerBar) {
-
-    currentBeatinBar = 0;
+  currentBeatInBar ++;
+  if (currentBeatInBar == beatsPerBar) {
+  
+    currentBeatInBar = 0;
   }
 }
 
@@ -36,11 +36,18 @@ function nextNote() {
 function scheduleNote(beatNumber, time){
 
   notesInQueue.push({ note: beatNumber, time: time });
-
   const osc = audioContext.createOscillator();
   const envelope = audioContext.createGain();
-        
-  envelope.gain.value = 440;
+  console.log(beatsPerBar)
+  console.log(currentBeatInBar)
+  if (beatNumber == 0) {
+
+    osc.frequency.value = 1000
+  }else{
+    osc.frequency.value = 800
+  }
+
+  envelope.gain.value = 1;
   envelope.gain.exponentialRampToValueAtTime(1, time + 0.001);
   envelope.gain.exponentialRampToValueAtTime(0.001, time + 0.02);
 
@@ -49,13 +56,16 @@ function scheduleNote(beatNumber, time){
     
   osc.start(time);
   osc.stop(time + 0.03);
+
 }
+
+        
+
 
 
 function scheduler(){
 
   while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {
-      console.log(audioContext.currentTime + scheduleAheadTime)
       scheduleNote(currentBeatInBar,nextNoteTime);
       nextNote();
     }    
@@ -66,11 +76,11 @@ function playClick() {
   if (isRunning) return;
 
   if (audioContext == null) {
-    audioContext = new (window.AudioContext || window.webkitAudioContext)
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
   }
   
   isRunning = true;
-  currentBeatinBar = 0
+  currentBeatInBar = 0
   nextNoteTime = audioContext.currentTime + 0.05
    
   intervalID = setInterval(() => scheduler(), lookahead);
@@ -138,6 +148,14 @@ addBeats.addEventListener('click', () => {
     measureCount.textContent = beatsPerBar;
     count = 0;
 });
+
+subtractBeats.addEventListener('click', () => {
+    if (beatsPerBar <= 2) { return };
+    beatsPerBar--;
+    measureCount.textContent = beatsPerBar;
+    count = 0;
+});
+
 
 startStopBtn.addEventListener('click', () => {
 

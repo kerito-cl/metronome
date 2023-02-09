@@ -1,9 +1,9 @@
 
 const slider = document.querySelector('.slider')
-const tempo = document.getElementById('tempo')
+const tempo = document.querySelector('.tempo')
 const decreaseTempo = document.querySelector(".decrease-tempo")
 const increaseTempo = document.querySelector(".increase-tempo")
-const startStopBtn = document.getElementById('start-stop')
+const startStopBtn = document.querySelector('.start-stop')
 const subtractBeats = document.querySelector('.subtract-beats')
 const addBeats = document.querySelector('.add-beats')
 const measureCount = document.querySelector('.measure-count')

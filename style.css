@@ -1,7 +1,8 @@
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Courier New', monospace;
     color: #525252;
     user-select: none;
+    background-color: #E6E6FA
 }
 .container {
     display: flex;
@@ -9,3 +10,148 @@ body {
     align-items: center;
     height: 100vh;
 }
+.metronome {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    justify-content: space-between;
+}
+
+.display-bpm {
+    width: 100%;
+    text-align: center;
+    color: #A52A2A;
+    font-weight: bold;
+}
+
+.display-bpm .tempo {
+    font-size: 4em;
+}
+
+
+.display-bpm .bpm {
+    font-size: 2em;
+}
+
+
+.tempo-settings {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.tempo-settings .adjust-tempo-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 40px;
+    border-radius: 60%;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tempo-settings .adjust-tempo-btn:hover {
+    background: #A52A2A;
+    color: #fff;
+}
+.tempo-settings .decrease-tempo {
+    line-height: 25px;
+}
+
+
+.tempo-settings .increase-tempo {
+    line-height: 30px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: transparent;
+    width: 70%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #A52A2A;
+    cursor: pointer;
+    margin-top: -8px;
+}
+input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #A52A2A;
+    cursor: pointer;
+    border: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+}
+
+.start-stop {
+    width: 50px;
+    height: 50px;
+    font-size: 0.8em;
+    text-align: center;
+    background:#A52A2A;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+.measures {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.measures .stepper {
+    width: 20px;
+    height: 20px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.measures .stepper:hover {
+    background: #A52A2A;
+    color: #fff;
+}
+.measures .add-beats {
+    line-height: 26px;
+}
+.measures .subtract-beats {
+    line-height: 26px;
+}
+
+.measures .measure-count {
+    font-size: 1.2em;
+    font-weight:bold;
+}
+
+.beats-per-measure-text {
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+

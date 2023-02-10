@@ -8,13 +8,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
 }
 .metronome {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 300px;
+    width: 600px;
+    height: 400px;
     justify-content: space-between;
 }
 
